@@ -11,7 +11,7 @@ const failItem = {
   name: `Lambda Sword`,
   type: "Weapon",
   durability: 20,
-  enhancementLvl: 15
+  enhancementLvl: 14
 };
 const expected = {
   originalName: "Lambda Sword",
@@ -40,12 +40,14 @@ describe("enchanting system", () => {
       expect(enhancer.success(item)).toEqual(expected);
     });
     it("should throw an error if durability is not enough", () => {
-      expect(enhancer.success(failItem)).toThrow();
+      expect(() => enhancer.success(failItem)).toThrow();
     });
   });
+
   describe("enchant fail", () => {
+    const failedItem = { ...item };
     test("decreases durability if fails", () => {
-      expect(enhancer.fail(item)).toEqual(expectedFail);
+      expect(enhancer.fail(failedItem)).toEqual(expectedFail);
     });
   });
   describe("repair", () => {

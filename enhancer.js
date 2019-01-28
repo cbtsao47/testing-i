@@ -40,6 +40,7 @@ function success(item) {
 }
 
 function disenchant(item) {
+  console.log("original", item);
   switch (item.enhancementLvl) {
     case 17:
       item.name = `[PRI] ${item.originalName}`;
@@ -51,11 +52,12 @@ function disenchant(item) {
       item.name = `[TRI] ${item.originalName}`;
       break;
     default:
-      console.log("test");
+      console.log("item", item.name);
       item.name = `[+${item.enhancementLvl}] ${item.originalName}`;
   }
 }
 function fail(item) {
+  console.log("fail", item);
   if (item.enhancementLvl < 15) {
     disenchant(item);
     item.durability -= 5;
