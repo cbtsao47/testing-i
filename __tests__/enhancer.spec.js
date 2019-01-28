@@ -1,17 +1,17 @@
 const enhancer = require("../enhancer");
 const item = {
   originalName: "Lambda Sword",
-  name: `[+0] Lambda Sword`,
+  name: `Lambda Sword`,
   type: "Weapon",
   durability: 100,
-  enhancementLvl: 0
+  enhancementLvl: 15
 };
 const expected = {
   originalName: "Lambda Sword",
-  name: `[+1] Lambda Sword`,
+  name: `[PRI] Lambda Sword`,
   type: "Weapon",
   durability: 100,
-  enhancementLvl: 1
+  enhancementLvl: 16
 };
 describe("enchanting system", () => {
   describe("success method", () => {
